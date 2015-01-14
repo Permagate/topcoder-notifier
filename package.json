@@ -1,0 +1,20 @@
+{
+  "name": "topcoder-notifier",
+  "version": "0.0.1",
+  "description": "A simple worker that regularly scrapes topcoder competition listing and emails the user when a new competition is published.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "topcoder",
+    "scrape",
+    "email",
+    "worker"
+  ],
+  "author": "Permagate",
+  "license": "MIT",
+  "dependencies": {
+    "crawler": "^0.4.1"
+  }
+}

@@ -9,7 +9,7 @@
 module.exports = function(grunt) {
 
   var paths = {
-    js: ['./*.js', './test/**/*.js']
+    js: ['./*.js', './test/**/*.js', './server/**/*.js']
   };
   
   /**

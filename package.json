@@ -1,6 +1,6 @@
 {
   "name": "topcoder-notifier",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple worker that regularly scrapes topcoder competition listing and emails the user when a new competition is published.",
   "main": "index.js",
   "repository": {

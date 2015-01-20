@@ -8,8 +8,8 @@
  */
 var config = require('config');
 var express = require('express');
-var example = require('./server/task/example');
 var run = require('./server/task/run');
+var tcApi = require('./server/task/tc-api.js');
 
 /**
  * Start Server
@@ -19,6 +19,13 @@ var port = config.get('app.port');
 
 app.listen(port, function() {
   console.log('Topcoder Notifier is currently run at port %s', port);
-  run.registerTask(example.printTime);
+  run.registerTask(tcApi.searchOpenSoftwareChallengesTask({
+    pageIndex: 1,
+    pageSize: 10,
+    type: 'develop',
+    technologies: 'Node.js,Angular.js',
+    sortColumn: 'challengeId',
+    sortOrder: 'desc'
+  }));
   run.start();
 });

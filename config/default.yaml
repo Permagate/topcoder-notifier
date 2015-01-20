@@ -1,4 +1,6 @@
 app:
   port: 8888
 run:
-  period: 10000
+  period: 3000
+tc:
+  url: 'http://api.topcoder.com'

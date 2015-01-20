@@ -10,6 +10,7 @@ var config = require('config');
 var express = require('express');
 var run = require('./server/task/run');
 var tcApi = require('./server/task/tc-api.js');
+var mail = require('./server/task/mail');
 
 /**
  * Start Server
@@ -27,5 +28,6 @@ app.listen(port, function() {
     sortColumn: 'challengeId',
     sortOrder: 'desc'
   }));
+  run.registerTask(mail.sendEmail('kend654@gmail.com', 'Node.JS Test Mailgun', 'Nodemailer works!'));
   run.start();
 });

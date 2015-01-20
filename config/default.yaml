@@ -1,6 +1,9 @@
 app:
   port: 8888
 run:
-  period: 3000
+  period: 30000
 tc:
   url: 'http://api.topcoder.com'
+mailgun:
+  key: 'sample-key'
+  from: 'sample-mail'

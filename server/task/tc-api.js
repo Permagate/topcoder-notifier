@@ -38,26 +38,25 @@ tcApi.searchOpenSoftwareChallengesTask = function(params) {
   
   return function(callback) {
     request(url, function (err, response, body) {
-      body = JSON.parse(body);
       if (err) {
         callback(null, err);
         return;
       }
+      body = JSON.parse(body);
       if (_tcApiMem[memIndex]) {
         var responseIndex = 0;
         var latestChallenges = [];
-        console.log('haha');
         while (_tcApiMem[memIndex].challengeId !== body.data[responseIndex].challengeId) {
           latestChallenges.push(body.data[responseIndex]);
           responseIndex++;
         }
         for (var i = latestChallenges.length; i--; i >= 0) {
           _tcApiMem[memIndex] = latestChallenges[latestChallenges.length - 1];
-          console.log('New challenge appears: %s', latestChallenges[i].challengeName);
+          console.log('New challenge: [%s] %s', latestChallenges[i].challengeType.toUpperCase(), latestChallenges[i].challengeName);
         }
       } else {
         _tcApiMem[memIndex] = body.data[0];
-        console.log('Latest challenge: %s', _tcApiMem[memIndex].challengeName);
+        console.log('Latest challenge: [%s] %s',  _tcApiMem[memIndex].challengeType.toUpperCase(), _tcApiMem[memIndex].challengeName);
       }
       callback(null, '');
       return;
